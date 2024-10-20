@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jane Doe's Contact Information</title>
+  <style>
+    
+    body{
+      background-color: #f9f9f9;
+    }
+
+    section {
+    margin: 40px 0; /* Add margin to create space between sections */
+    padding: 20px; /* Optional: add padding inside each section */
+    background-color: #f9f9f9; /* Optional: background color for better contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+    .contact-info {
+    background-color: #663399; /* Main background color */
+    color: white; /* Text color */
+    padding: 20px; /* Increased padding for a better look */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center align items vertically */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.contact-details {
+    flex: 1; /* Allow this section to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.navigation {
+    flex: 1; /* Allow this section to take available space */
+    text-align: right; /* Align text to the right */
+}
+
+.navigation a {
+    color: white; /* Link color */
+    margin-left: 20px; /* Increased space between links */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Increased padding for a button-like look */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s, transform 0.3s; /* Smooth transition for background and scale */
+}
+
+.navigation a:hover {
+    background-color: rgba(255, 215, 0, 0.7); /* Highlight color on hover */
+    color: black; /* Text color on hover */
+    font-family: 'Courier New', monospace; /* Font style on hover */
+    font-style: italic; /* Font style on hover */
+    transform: scale(1.05); /* Slightly enlarge link on hover */
+}
+
+
+    .details {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+}
+
+.about-me-image {
+    flex: 0 0 30%; /* Adjust width of the image section (30% here) */
+    text-align: center; /* Center the image if needed */
+}
+
+    .about-me-image img {
+    max-width: 150%; 
+    height: auto; 
+    }
+
+    .about_me{
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .about_me p {
+        font-size: 1.2em; 
+            line-height: 1.5; 
+            margin: 0;
+    }
+
+    .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s; 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+}
+        .pro-container{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        .project-title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .project-description {
+            margin-left: 20px;
+        }
+
+        .Rcard{
+            background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px; 
+    padding: 15px; 
+    transition: transform 0.2s; 
+    text-align: right; 
+    display: inline-block; 
+    width: 200px; 
+    vertical-align: top; 
+        }
+
+
+        .from {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+}
+
+.from h1 {
+  color: purple;
+  text-align: center;
+}
+
+#recommendation_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Rcard {
+  background-color: #e0e0e0;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.Rinput {
+  width: calc(100% - 22px); 
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Rbtn {
+  padding: 10px 20px;
+  background: linear-gradient(to right, #6a11cb, #2575fc); 
+  border: none;
+  border-radius: 20px; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+  color: #fff; 
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+.Rbtn:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb); 
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#okBtn {
+    padding: 10px 20px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 20px; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+  color: #fff; 
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+
+#okBtn:hover {
+  background-color: #0056b3;
+}
+
+.homebtn{
+    position: fixed; /* Fixed position to stay in place when scrolling */
+    right: 20px; /* Distance from the right edge of the screen */
+    bottom: 20px; /* Distance from the bottom edge of the screen */
+    padding: 10px 20px; /* Adjust padding as needed */
+    color: white; /* Button text color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+.pro-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    margin: 20px 0; /* Space above and below the section */
+}
+
+.pro-card {
+    background-color: white; /* Card background color */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 20px; /* Inner padding */
+    width: 90%; /* Set a width for the card */
+    max-width: 800px; /* Maximum width */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: flex-start; /* Align cards to the left */
+    width: 100%; /* Full width of the container */
+}
+
+.card {
+    background-color: #f9f9f9; /* Card background color */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 10px; /* Space between cards */
+    padding: 15px; /* Inner padding */
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, and base width */
+    max-width: 300px; /* Maximum width for cards */
+    transition: transform 0.2s; /* Smooth scale on hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.project-title {
+    font-weight: bold; /* Bold project title */
+    font-size: 1.2em; /* Font size for project title */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.project-description {
+    font-size: 1em; /* Font size for project description */
+    color: #666; /* Description text color */
+}
+
+.image-container {
+    flex: 0 0 40%; /* Fixed width for image container (adjust as needed) */
+    text-align: center; /* Center the image */
+}
+
+.image-container img {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack content vertically on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+    
+    .image-container {
+        width: 100%; /* Full width for image on small screens */
+        margin-top: 20px; /* Space above image */
+    }
+}
+
+.A-card {
+    flex: 1; /* Allow the card to take the remaining space */
+    background-color: #fff; /* Card background color */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-left: 20px; /* Space between the image and the card */
+    padding: 20px; /* Inner padding */
+}
+
+
+
+  </style>
+</head>
+<body>
+  <section id="home" class="contact-info">
+    <div class="contact-details">
+      <h2>QaisAbdullah</h2>
+      <p>
+        <img src="/Users/AFOX/Desktop/webprojects/emailicon.png" alt="Email icon">
+        <i class="fa fa-envelope"></i> qaisashraf0@gmail.com
+      </p>
+      <p>
+        <img src="/Users/AFOX/Desktop/webprojects/phoneicon.png" alt="Phone icon">
+        <i class="fa fa-phone"></i> 059XXXXXXX
+      </p>
+    </div>
+    <div class="navigation">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#recommendations">Recommendations</a>
+    </div>
+  </section>
+
+  <section id="about-me" class="container">
+    <div id="about" class="details">
+
+        <div class="about-me-image">
+            <img src="/Users/AFOX/Desktop/webprojects/dev.JFIF" alt="Email icon">
+        </div>
+
+        <div class="A-card">
+          <div class="about_me">
+              <h1 style="color: purple;">Hi, Qais Abdullah! 👋</h1>
+              <p>
+                  Qais Al-Hajj Abdullah is a talented full-stack developer with 2 years of experience in building robust applications and microservices. Based in Palestine, Qais possesses a deep passion for programming, game development, and creative writing. He is dedicated to continuously enhancing his skills, currently pursuing a data engineering course on Coursera.
+      
+                  In addition to his technical expertise, Qais is a published author with a knack for storytelling, weaving intricate narratives in both novels and short stories. His creative endeavors are complemented by his work in game development, where he designs engaging gameplay experiences using Unreal Engine.
+      
+                  With a strong foundation in both the application and presentation layers of development, Qais is known for his analytical thinking and innovative problem-solving abilities, making him a valuable asset in any project he undertakes.
+              </p>
+          </div>
+      </div>
+      
+</div>
+  </section>
+
+
+<section>
+    <div id="skills" class="card-container">
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/html.png" alt="HTML Icon">
+            <h3>HTML</h3>
+            <p>2 years experience</p>
+        </div>
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/js.png" alt="JavaScript Icon">
+            <h3>JavaScript</h3>
+            <p>2 years experience</p>
+        </div>
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/java.png" alt="Java Icon">
+            <h3>Java</h3>
+            <p>2 years experience</p>
+        </div>
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/unreal.png" alt="Unreal Engine Icon">
+            <h3>Unreal Engine</h3>
+            <p>Experience in game development</p>
+        </div>
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/njs.png" alt="Node.js Icon">
+            <h3>Node.js</h3>
+            <p>2 years experience</p>
+        </div>
+        <div class="card">
+            <img src="/Users/AFOX/Desktop/webprojects/css.png" alt="CSS Icon">
+            <h3>CSS</h3>
+            <p>2 years experience</p>
+        </div>
+    </div>
+    
+</section>
+
+<section id="projects" class="pro-container">
+  <div class="pro-card">
+      <h1 style="color: purple;">Projects</h1>
+      <div class="card-container">
+          <div class="pro-card">
+              <div class="project-title">Novel Website</div>
+              <div class="project-description">
+                  Developed a fully responsive website to showcase and promote my novel "The War of the Hanging Corpses" using HTML, CSS, and JavaScript.
+              </div>
+          </div>
+          <div class="pro-card">
+              <div class="project-title">Multiplayer Shooter Game</div>
+              <div class="project-description">
+                  Designed and developed an online multiplayer shooter game with cooperative gameplay using Unreal Engine and integrated it with a server for real-time player interactions.
+              </div>
+          </div>
+          <div class="pro-card">
+              <div class="project-title">Data Engineering Dashboard</div>
+              <div class="project-description">
+                  Built a custom data engineering dashboard using Python, SQL, and web technologies to visualize and analyze large datasets in real-time, designed to support business decision-making processes.
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="image-container">
+    <img src="/Users/AFOX/Desktop/webprojects/des.JFIF" alt="Project Image" />
+</div>
+</section>
+
+
+<section>
+    
+    <div id="recommendations" class="from">
+        <h1 style="color: purple;">Recommendations</h1>
+        <ul id="recommendation_list">
+            <li class="Rcard">Learn the fundamentals of responsive web design to enhance user experience on all devices.</li>
+            <li class="Rcard">Explore Unreal Engine's Blueprint system for faster game prototyping without coding.</li>
+            <li class="Rcard">Try developing a new game feature in Unreal Engine to enhance your programming skills.</li>
+        </ul>
+        <input class ="Rinput" type="text" id="recommendation_input" placeholder="Enter your recommendation" />
+        <button class="Rbtn" id="recommend_btn">Add Recommendation</button>
+    </div>
+
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <p>Thanks for leaving a recommendation!</p>
+            <button id="okBtn">OK</button>
+        </div>
+    </div>
+    
+
+    <script src="/Users/AFOX/Desktop/webprojects/script.js"></script>
+</section>
+<div class="homebtn" id="go-home">
+    <a href="#home">
+        <img src="/Users/AFOX/Desktop/webprojects/upicon.png"/>
+    </a>
+</div>
+</body>
+</html>
